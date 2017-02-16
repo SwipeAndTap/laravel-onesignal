@@ -88,7 +88,11 @@ class OneSignalClient
         return $this;
     }
 
-    public function sendNotificationToUser($message, $userId, $url = null, $data = null, $buttons = null, $schedule = null) {
+    public function sendNotificationToUser($heading, $message, $userId, $url = null, $data = null, $buttons = null, $schedule = null) {
+        $headings = array(
+            "en" => $heading
+        );
+
         $contents = array(
             "en" => $message
         );
@@ -96,7 +100,9 @@ class OneSignalClient
         $params = array(
             'app_id' => $this->appId,
             'contents' => $contents,
-            'include_player_ids' => array($userId)
+            'headings' => $headings,
+            'include_player_ids' => array($userId),
+            'ios_badgeCount' => 'Increase'
         );
 
         if (isset($url)) {
