@@ -102,7 +102,8 @@ class OneSignalClient
             'contents' => $contents,
             'headings' => $headings,
             'include_player_ids' => array($userId),
-            'ios_badgeCount' => 'Increase'
+            'ios_badgeType' => 'Increase',
+            'ios_badgeCount' => 1
         );
 
         if (isset($url)) {
